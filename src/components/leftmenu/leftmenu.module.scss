@@ -1,0 +1,32 @@
+.leftmenu {
+  width: 200px;
+  height: 100%;
+  background: #e9e9e9;
+  position: fixed;
+  h2 {
+    font-size: 14px;
+    color: #444;
+  }
+  .linkPanel {
+    background: #fff;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 5px 15px;
+    .subHeading {
+      text-align: center;
+      margin: 10px 0;
+      span {
+        font-size: 12px;
+        padding: 2px;
+        border-bottom: 2px solid #444;
+      }
+    }
+    .yearList {
+      li {
+        width: 50%;
+        padding: 8px;
+        display: inline-block;
+      }
+    }
+  }
+}
