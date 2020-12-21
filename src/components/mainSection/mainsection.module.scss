@@ -1,4 +1,16 @@
 .mainSection {
   width: 100%;
+  display: flex;
   margin-left: 200px;
+  flex-wrap: wrap;
+  height: 100vh;
+  overflow: auto;
+}
+
+.noDataFound {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }

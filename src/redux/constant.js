@@ -1,1 +1,3 @@
 export const FETCH_LAUNCH_DATA = "FETCH_LAUNCH_DATA";
+export const SET_IS_LOCAL = "SET_IS_LOCAL";
+export const STORE_YEAR_TO_FILTER = "STORE_YEAR_TO_FILTER";

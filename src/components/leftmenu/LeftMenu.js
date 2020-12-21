@@ -1,18 +1,47 @@
 import React, { Component } from "react";
 import get from "lodash/get";
-import Button from "../common/Button";
+import { connect } from "react-redux";
 
+import { fetchLaunches } from "../../redux/actions/launches";
+import Button from "../common/Button";
 import styles from "./leftmenu.module.scss";
 
-export default class LeftMenu extends Component {
+class LeftMenu extends Component {
   state = {
     isLanding: true,
     launchYear: get(this.props, "data[0].launch_year"),
+    launchesData: get(this.props, "data"),
   };
-  handleLaunchClick = (evt) => this.setState({ isLaunch: evt.target.value });
-  handleLandingClick = (evt) => this.setState({ isLanding: evt.target.value });
-  handleLaunchYearCLick = (evt) =>
-    this.setState({ launchYear: evt.target.value });
+  handleLaunchClick = (evt) => {
+    const { value } = evt.target;
+    this.setState({ isLaunch: evt.target.value, launchValue: value }, () => {
+      this.props.fetchLaunches({
+        ...this.state,
+        isLaunch: true,
+        launchValue: value,
+      });
+    });
+  };
+  handleLandingClick = (evt) => {
+    const { value } = evt.target;
+    this.setState({ isLanding: evt.target.value, landingValue: value }, () => {
+      this.props.fetchLaunches({
+        ...this.state,
+        isLanding: true,
+        landingValue: value,
+      });
+    });
+  };
+  handleLaunchYearCLick = (evt) => {
+    const { value } = evt.target;
+    this.setState({ isYear: evt.target.value, launchYear: value });
+    this.props.fetchLaunches({
+      ...this.state,
+      isYear: true,
+      launchYear: value,
+    });
+  };
+
   render() {
     const { data } = this.props;
     return (
@@ -23,19 +52,21 @@ export default class LeftMenu extends Component {
             <span>Launch Year</span>
           </h3>
           <ul className={styles.yearList}>
-            {data.map((item, index) => {
-              if ((index + 1) % 3 == 0) return <br />;
-              return (
-                <li>
-                  <Button
-                    name={item.launch_year}
-                    active={this.state.launchYear === item.launch_year}
-                    value={item.launch_year}
-                    onClick={this.handleLaunchYearCLick}
-                  />
-                </li>
-              );
-            })}
+            {data &&
+              data.map((item, index) => {
+                if ((index + 1) % 3 == 0)
+                  return <br key={item.flight_number} />;
+                return (
+                  <li key={item.flight_number}>
+                    <Button
+                      name={item.launch_year}
+                      active={this.state.launchYear === item.launch_year}
+                      value={item.launch_year}
+                      onClick={this.handleLaunchYearCLick}
+                    />
+                  </li>
+                );
+              })}
           </ul>
           <h3 className={styles.subHeading}>
             <span>SuccessFul Launch</span>
@@ -84,3 +115,13 @@ export default class LeftMenu extends Component {
     );
   }
 }
+
+const mapState = (store) => {
+  // return { launches: store.launches };
+};
+
+const mapProps = {
+  fetchLaunches,
+};
+
+export default connect(mapState, mapProps)(LeftMenu);
