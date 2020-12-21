@@ -16,4 +16,4 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ....
 
-![screenshot](https://github.com/demukeshchouhan/spacex/screenshot/screenshot1.png)
+![screenshot](https://github.com/demukeshchouhan/spacex/blob/master/public/screenshot/screenshot1.PNG)
