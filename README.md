@@ -15,3 +15,5 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## Deployment
 
 ....
+
+![screenshot](https://github.com/demukeshchouhan/spacex/screenshot/screenshot1.png)
