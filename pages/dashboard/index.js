@@ -2,7 +2,10 @@ import React, { Component } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
 import uniqBy from "lodash/uniqBy";
+import get from "lodash/get";
+import { NextSeo, DefaultSeo } from "next-seo";
 
+import SEO from "../../next-seo.config";
 import Header from "../../src/components/header/Header";
 import LeftMenu from "../../src/components/leftmenu/LeftMenu";
 import MainSection from "../../src/components/mainSection/MainSection";
@@ -12,7 +15,6 @@ import {
   setYearsData,
 } from "../../src/redux/actions/launches";
 import styles from "./dashboard.module.scss";
-import { get } from "lodash";
 
 class Dashboard extends Component {
   // static getInitialProps({ ctx, store }) {
@@ -45,6 +47,12 @@ class Dashboard extends Component {
     return (
       <>
         <Header />
+        <NextSeo
+          noindex={true}
+          title="space X Dashboard"
+          description="Space X dashboard, Get details of success and failed launches"
+        />
+        <DefaultSeo {...SEO(launchesData)} />
         <div className={styles.wrapper}>
           <LeftMenu data={years} />
           <MainSection data={launchesData} />

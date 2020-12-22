@@ -31,3 +31,19 @@
     }
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .leftmenu {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    .linkPanel {
+      margin: 0;
+    }
+    .yearList {
+      li {
+        text-align: center;
+      }
+    }
+  }
+}

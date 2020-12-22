@@ -1,4 +1,6 @@
 import React from "react";
+import { NextSeo } from "next-seo";
+
 import styles from "./card.module.scss";
 
 export default function Card(props) {
@@ -10,12 +12,15 @@ export default function Card(props) {
         <h2
           className={styles.mainHeading}
         >{`${item.mission_name} #${item.flight_number}`}</h2>
-        <h2 className={styles.subHeading}>Mission Ids:</h2>
-        <ul>
-          {item.mission_id.map((ids) => (
-            <li key={ids}>{ids}</li>
-          ))}
-        </ul>
+        <div className={styles.row}>
+          <span className={styles.subHeading}>Mission Ids:</span>
+          <ul className={styles.subHeadingDesc}>
+            {item.mission_id.map((ids) => (
+              <li key={ids}>{ids}</li>
+            ))}
+          </ul>
+        </div>
+
         <div className={styles.row}>
           <span className={styles.subHeading}>Launch Year:</span>
           <span className={styles.subHeadingDesc}>{item.launch_year}</span>

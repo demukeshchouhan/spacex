@@ -34,7 +34,7 @@ export const fetchLaunches = (props) => {
     return axios({
       url: `https://api.spacexdata.com/v3/launches`,
       params: {
-        limit: "100",
+        limit: "50",
         launch_success: isLaunch ? launchValue : null,
         landing_success: isLanding ? landingValue : null,
         launch_year: isYear ? launchYear : null,

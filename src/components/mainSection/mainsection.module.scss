@@ -1,7 +1,7 @@
 .mainSection {
   width: 100%;
   display: flex;
-  margin-left: 200px;
+  margin-left: 215px;
   flex-wrap: wrap;
   height: 100vh;
   overflow: auto;
@@ -13,4 +13,15 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
+}
+
+@media only screen and (max-width: 600px) {
+  .mainSection {
+    width: 100%;
+    display: flex;
+    margin-left: 0px;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+  }
 }

@@ -24,7 +24,11 @@ class MyApp extends Component {
     return (
       <Provider store={store}>
         <Head>
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta
+            name="viewport"
+            content="initial-scale=1.0, width=device-width"
+            key="viewport"
+          />
         </Head>
         <Component {...pageProps} />
       </Provider>
