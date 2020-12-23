@@ -21,6 +21,13 @@ export default class MainSection extends Component {
     });
   };
   render() {
-    return <div className={styles.mainSection}>{this.renderCards()}</div>;
+    return (
+      <div className={styles.mainSection}>
+        {this.renderCards()}
+        <div className={styles.developer}>
+          <h2>Developed By: Mukesh Chouhan</h2>
+        </div>
+      </div>
+    );
   }
 }
