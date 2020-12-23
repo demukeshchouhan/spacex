@@ -12,11 +12,17 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Deployment
+## Screenshots
 
 ....
 
-![Desktop Screenshot](https://github.com/demukeshchouhan/spacex/blob/master/public/screenshot/screenshot1.PNG)
-![Mobile screenshot](https://github.com/demukeshchouhan/spacex/blob/master/public/screenshot/mobile_SS.png)
-![Lighthouse screenshot](https://github.com/demukeshchouhan/spacex/blob/master/public/screenshot/lighthouse.PNG)
-![testcase screenshot](https://github.com/demukeshchouhan/spacex/blob/master/public/screenshot/test.PNG)
+| Name            | Screenshot                                                                                                       |
+| --------------- | ---------------------------------------------------------------------------------------------------------------- |
+| Desktop Preview | ![Desktop Screenshot](https://github.com/demukeshchouhan/spacex/blob/master/public/screenshot/screenshot1.PNG)   |
+| Mobile          | ![Mobile screenshot](https://github.com/demukeshchouhan/spacex/blob/master/public/screenshot/mobile_SS.png)      |
+| LightHouse      | ![Lighthouse screenshot](https://github.com/demukeshchouhan/spacex/blob/master/public/screenshot/lighthouse.PNG) |
+| Testcases       | ![testcase screenshot](https://github.com/demukeshchouhan/spacex/blob/master/public/screenshot/test.PNG)         |
+
+## Deployment
+
+....
