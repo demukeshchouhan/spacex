@@ -20,7 +20,6 @@ class MyApp extends Component {
   }
   render() {
     const { Component, pageProps } = this.props;
-    // console.log(this.props, "app");
     return (
       <Provider store={store}>
         <Head>

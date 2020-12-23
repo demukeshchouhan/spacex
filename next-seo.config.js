@@ -2,7 +2,7 @@ import { property } from "lodash";
 
 import uniqBy from "lodash/uniqBy";
 
-export default (arr) => {
+export default function setSeo(arr) {
   const removeDuplicateYear = uniqBy(arr, "launch_year");
   return removeDuplicateYear.map((item) => {
     return {
@@ -11,4 +11,4 @@ export default (arr) => {
       ],
     };
   });
-};
+}

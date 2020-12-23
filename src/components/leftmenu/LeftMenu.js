@@ -12,33 +12,36 @@ class LeftMenu extends Component {
     launchYear: get(this.props, "data[0].launch_year"),
     launchesData: get(this.props, "data"),
   };
+
   handleLaunchClick = (evt) => {
-    const { value } = evt.target;
-    this.setState({ isLaunch: evt.target.value, launchValue: value }, () => {
-      this.props.fetchLaunches({
-        ...this.state,
-        isLaunch: true,
-        launchValue: value,
-      });
+    this.handleCommonClick(evt, {
+      prevState: "isLaunch",
+      nextState: "launchValue",
     });
   };
+
   handleLandingClick = (evt) => {
-    const { value } = evt.target;
-    this.setState({ isLanding: evt.target.value, landingValue: value }, () => {
-      this.props.fetchLaunches({
-        ...this.state,
-        isLanding: true,
-        landingValue: value,
-      });
+    this.handleCommonClick(evt, {
+      prevState: "isLanding",
+      nextState: "landingValue",
     });
   };
+
   handleLaunchYearCLick = (evt) => {
+    this.handleCommonClick(evt, {
+      prevState: "isYear",
+      nextState: "launchYear",
+    });
+  };
+
+  handleCommonClick = (evt, params) => {
     const { value } = evt.target;
-    this.setState({ isYear: evt.target.value, launchYear: value });
+    const { prevState, nextState } = params;
+    this.setState({ [prevState]: value, [nextState]: value });
     this.props.fetchLaunches({
       ...this.state,
-      isYear: true,
-      launchYear: value,
+      [prevState]: true,
+      [nextState]: value,
     });
   };
 
@@ -54,8 +57,9 @@ class LeftMenu extends Component {
           <ul className={styles.yearList}>
             {data &&
               data.map((item, index) => {
-                if ((index + 1) % 3 == 0)
+                if ((index + 1) % 3 == 0) {
                   return <br key={item.flight_number} />;
+                }
                 return (
                   <li key={item.flight_number}>
                     <Button
@@ -116,8 +120,8 @@ class LeftMenu extends Component {
   }
 }
 
-const mapState = (store) => {
-  // return { launches: store.launches };
+const mapState = () => {
+  return {};
 };
 
 const mapProps = {
